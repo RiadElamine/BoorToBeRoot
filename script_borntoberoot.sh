@@ -10,7 +10,7 @@ vCPY=`nproc`
     #RAM
 total_mem=`free -m | grep "Mem" | awk '{print $2}'`
 used_mem=`free -m | grep "Mem" | awk '{print $3}'`
-porc_umem=`echo $used_mem $total_mem | awk '{printf("%d\n", ($1 / $2) * 100 )}'`
+porc_umem=`echo $used_mem $total_mem | awk '{printf("%.2f", ($1 / $2) * 100 )}'`
 
     #disk
 total_disk=`df -h --total | grep "total" | awk '{print $2}'`
