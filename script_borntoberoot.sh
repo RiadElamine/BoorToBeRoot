@@ -21,7 +21,7 @@ proc_udisk=`df --total | grep "total" | awk '{print $5}'`
 user_log=`who | awk '{print $1}' | sort -u | wc -l`
 
     #CPU
-cpu_l=`top -bn1 | tr ',' ' ' | awk ' NR == 3 {print $8}'`
+cpu_l=`top -bn1 | tr ',' ' ' | awk ' NR == 3 {printf("%.1f", 100 -$8)}'`
 
     #last boot
 last_boot=`who -b | awk '{print $3 " " $4}'`
